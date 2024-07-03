@@ -31,11 +31,11 @@ $H_A$: The average number of pushups done in 2 minutes by line players is statis
 
 <!--Decide on your methods: use "variable analysis" or other appropriate descriptors. Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-SKILL IS A CATEGORICAL VARIABLE,  
+POSITIONS IS A CATEGORICAL VARIABLE,  
 PUSHUPS IS A NUMMERICAL VARIABLE    
 SO WE PREDICT PUSHUPS BASED ON POSITION, VIZ,    
-PUSHUPS~ POSITION  
-
+PUSHUPS~ POSITION    
+SO WE HAVE THE HELPER FILE NUM~CAT 
 # Results
 
 <!--Divide this section into two sub-sections: One for your descriptive results and one for your inferential results.!-->
@@ -46,16 +46,36 @@ PUSHUPS~ POSITION
 
 <!--Graphical results here. Make sure to show your code. Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too. Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+```{r}
+boxplot(pushups~position,data=mydata)
+```
+
+this boxplot shows that the skilled players do more pushups than line players in 2 minututes 
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+favstats(pushups~position,data=mydata)
+```
+
+
+this shows that line players do on average 17 pushups in 2 minutes and skilled players do about 50 pushups
 ## Inferential Results
 
 <!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+t.test(pushups~position,data=mydata)
+```
+
+this shows that the pvalue is 0.00009421, which means we reject the null because its less than 0.05 and conclude that there is a difference between line and skill players doing pushups in 2 minutes 
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
-
+ 
+the data from the college football team, line and skill position players did as many pushups in two mins as they could 
+ 
+ the boxplot proves that the skilled players do more pushups than line players in 2 minututes and t-test shows that the pvalue is lower (0.00009) than 0.05 which means we reject the null 
